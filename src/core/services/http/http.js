@@ -1,6 +1,9 @@
 import superagent from "superagent";
 import { RESTify } from "../../../shared/utils/url";
 
+// We can change this for any compatible http request library
+const http = superagent;
+
 let instance;
 
 class Http {
@@ -9,39 +12,37 @@ class Http {
       instance = this;
     }
 
-    this.url = URL;
-
     return instance;
   }
 
   get(url, params = [], paramsId = "{PARAM}") {
     return url && typeof url === "string"
-      ? superagent.get(RESTify(url, params, paramsId))
-      : new Error("Invalid URL");
+      ? http.get(RESTify(url, params, paramsId))
+      : Promise.reject({ status: 400, message: "Invalid function params" });
   }
 
   post(url, body, params = [], paramsId = "{PARAM}") {
     return url && typeof url === "string" && body
-      ? superagent
+      ? http
           .post(RESTify(url, params, paramsId))
           .set("Content-Type", "application/json")
           .send(body)
-      : new Error("Invalid function params");
+      : Promise.reject({ status: 400, message: "Invalid function params" });
   }
 
   put(url, body, params = [], paramsId = "{PARAM}") {
     return url && typeof url === "string" && body
-      ? superagent
+      ? http
           .put(RESTify(url, params, paramsId))
           .set("Content-Type", "application/json")
           .send(body)
-      : new Error("Invalid function params");
+      : Promise.reject({ status: 400, message: "Invalid function params" });
   }
 
   delete(url, params = [], paramsId = "{PARAM}") {
     return url && typeof url === "string"
-      ? superagent.delete(RESTify(url, params, paramsId))
-      : new Error("Invalid URL");
+      ? http.delete(RESTify(url, params, paramsId))
+      : Promise.reject({ status: 400, message: "Invalid function params" });
   }
 }
 
