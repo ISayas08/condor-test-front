@@ -4,6 +4,9 @@ const REQUEST_SUCCESSFUL = "REQUEST_SUCCESSFUL";
 
 const SET_USER = "SET_USER";
 
+const SET_PRODUCTS = "SET_PRODUCTS";
+const SET_PRODUCTS_ON_DETAIL = "SET_PRODUCTS_ON_DETAIL";
+
 export const REQUEST = {
   REQUEST_START,
   REQUEST_ERROR,
@@ -12,4 +15,9 @@ export const REQUEST = {
 
 export const USER = {
   SET_USER
+};
+
+export const PRODUCT = {
+  SET_PRODUCTS,
+  SET_PRODUCTS_ON_DETAIL
 };

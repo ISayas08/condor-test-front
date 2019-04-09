@@ -35,4 +35,3 @@ export const PRODUCT_SERVICE = `${BACK_URL}/products`;
 // Products service endpoints
 export const GET_PRODUCT_DETAIL = `${PRODUCT_SERVICE}/{PARAM}`;
 export const GET_ALL_PRODUCTS = `${PRODUCT_SERVICE}/`;
-export const CREATE_PRODUCT = `${PRODUCT_SERVICE}/`;
