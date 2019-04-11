@@ -8,7 +8,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { store } from "./core/redux/store";
 
-// import { getProducts_ActionCreator } from "./core/redux/actions/product_actionCreators";
+// import { addProductToCart_actionCreator } from "./core/redux/actions/cart_actionCreator";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -17,6 +17,6 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-// store.dispatch(getProducts_ActionCreator());
+// store.dispatch(addProductToCart_actionCreator("3wTNVuHaxL3shxA4teGd", "3W3qSS6rCck1PJDgPXBv", "200"));
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.register();

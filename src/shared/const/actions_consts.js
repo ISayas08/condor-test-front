@@ -7,6 +7,9 @@ const SET_USER = "SET_USER";
 const SET_PRODUCTS = "SET_PRODUCTS";
 const SET_PRODUCTS_ON_DETAIL = "SET_PRODUCTS_ON_DETAIL";
 
+const SET_CART = "SET_CART";
+const UPDATE_CART = "UPDATE_CART";
+
 export const REQUEST = {
   REQUEST_START,
   REQUEST_ERROR,
@@ -20,4 +23,9 @@ export const USER = {
 export const PRODUCT = {
   SET_PRODUCTS,
   SET_PRODUCTS_ON_DETAIL
+};
+
+export const CART = {
+  SET_CART,
+  UPDATE_CART
 };
