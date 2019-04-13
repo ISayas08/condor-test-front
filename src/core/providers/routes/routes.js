@@ -2,10 +2,6 @@ import React from 'react';
 import { Route } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
-import { HomePage } from '../../../modules/marketplace/pages/home/home_page';
-import { ProductDetail } from '../../../modules/marketplace/pages/productDetail/product_detail_page';
-
-
 let instance;
 
 class Routes {
@@ -15,13 +11,6 @@ class Routes {
             instance = this
         }
 
-        this.BASIC_ROUTE = '/market-place';
-        this.routes = [
-            { title: 'Home', route: `${this.BASIC_ROUTE}/home`, component: HomePage },
-            { title: '', route: `${this.BASIC_ROUTE}/product/:id`, component: ProductDetail },
-            { title: 'Cart', route: `${this.BASIC_ROUTE}/cart`, component: null }
-        ];
-
         return instance;
     }
 
@@ -29,28 +18,23 @@ class Routes {
     //  Getters
     //====================================================================
 
-    getBasicRoute() {
-        return this.BASIC_ROUTE;
+    getMapedRoutesAsLinks(routes, routeClass = "mlink", activeClass = "active") {
+        return routes.map((route, i) => (
+            <NavLink className={routeClass} activeClassName={routeClass} key={i} to={route.route}>
+                {route.title}
+            </NavLink>)
+        );
     }
 
-    getRouteByIndex(index) {
-        return this.routes[index] ? this.routes[index] : this.routes[0];
+    getMapedRoutes(routes) {
+        return routes.map((route, i) => (
+            <Route key={i} path={route.route} component={route.component} />)
+        );
     }
 
-    getRoutes() {
-        return this.routes;
+    getRouteByIndex(routes, index) {
+        return routes[index] ? routes[index] : routes[0];
     }
-
-    getMapedRoutesAsLinks() {
-        return this.routes.map((route, i) => <NavLink className='mItem' activeClassName='active' key={i} to={route.route}>
-            {route.title}
-        </NavLink>);
-    }
-
-    getMapedRoutes() {
-        return this.routes.map((route, i) => <Route key={i} path={route.route} component={route.component} />);
-    }
-
 }
 
 export const _routes = new Routes();
