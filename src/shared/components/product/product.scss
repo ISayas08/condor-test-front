@@ -1,0 +1,119 @@
+@import "./../../const/sass/index.scss";
+
+.product {
+    padding: .7em;
+    color: $dark-color;
+
+    &__content {
+        -webkit-box-shadow: 1px 1px 4px #dfdfdf;
+        box-shadow: 1px 1px 4px #dfdfdf;
+    }
+
+    &__preview {
+        padding: .1em;
+        -o-object-fit: contain;
+        object-fit: contain;
+        height: auto;
+        width: 100%;
+    }
+
+    &__detail-box {
+        padding: .2em .7em 1em;
+        position: relative;
+    }
+
+    &__name {
+        @include title-font--bold();
+        font-size: 1.2em;
+
+        &::after {
+            content: " | ";
+            color: $primary-color;
+        }
+    }
+
+    &__description {
+        @include text-wrap();
+        color: $secundary-dark-color;
+        font-size: .9em;
+    }
+
+    &__see-more {
+        color: $secundary-dark-color;
+        font-weight: bold;
+        font-size: .9em;
+        transition: all .2s ease-in-out;
+
+        &:hover {
+            color: $secundary-color;
+        }
+
+        &-box {
+            padding-top: .3em;
+            padding-bottom: 1em;
+        }
+    }
+
+    &__price {
+        color: $secundary_color;
+        font-size: .9em;
+        font-weight: bold;
+    }
+
+    &__add {
+        $button-box: &;
+
+        &-button {
+            @include flex();
+            @include flex-wrap();
+            @include justify-content-around();
+            @include align-items-center();
+            outline: none;
+            position: absolute;
+            background-color: $primary-color;
+            color: $primary-color;
+            border: 1px solid $light-color;
+            -webkit-box-shadow: 1px 1px 2px #dbdbdb;
+            box-shadow: 1px 1px 2px #dbdbdb;
+            line-height: 1em;
+            font-size: 1em;
+            border-radius: 50%;
+            padding: .8em;
+            top: -32px;
+            right: 16px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+            overflow: hidden;
+
+            &-text {
+                font-size: .9em;
+                color: currentColor;
+                transition: all .1s;
+            }
+
+
+
+            &:hover {
+                @include justify-content-around();
+                -webkit-box-shadow: 1px 2px 4px #cecece;
+                box-shadow: 1px 2px 4px #cecece;
+                width: 150px;
+                border-radius: 1.65em;
+                color: $light-color;
+            }
+
+            &:hover>#{$button-box}-icon {
+                padding-bottom: 0;
+            }
+        }
+
+        &-icon {
+            color: $light-color;
+            width: 25px;
+            height: auto;
+            padding-bottom: 1em;
+        }
+    }
+}

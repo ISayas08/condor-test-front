@@ -13,6 +13,7 @@
     @media only screen and (min-width: $min-table) {
         @include flex-flow-row();
         @include flex-wrap();
+        padding: 2em 1.5em;
     }
 
     &__section {
@@ -63,10 +64,11 @@
         outline: none;
         padding: .4em .6em;
         height: 35px;
-        max-width: 300px;
         -webkit-transition: .2s;
         transition: .2s;
         color: $dark-color;
+
+
 
 
         &:focus~#{$this}__line {
@@ -91,10 +93,18 @@
             font-size: 1em;
             font-weight: bold;
 
+            @media only screen and (min-width: $min-table) {
+                max-width: 300px;
+            }
+
             &:focus {
                 height: 100px;
                 background-color: $secundary-light-color;
                 color: $dark-color;
+
+                @media only screen and (min-width: $min-table) {
+                    max-width: 350px;
+                }
             }
 
             &:focus~#{$this}__line {
@@ -112,8 +122,11 @@
         transition: .2s;
         bottom: 16px;
         left: 0;
-        max-width: 300px;
         border-bottom: 3px solid $light-color;
+
+        @media only screen and (min-width: $min-table) {
+            max-width: 350px;
+        }
     }
 
     &__box {
@@ -127,9 +140,13 @@
     &__icon {
         width: 30px;
         height: auto;
-        padding: 0 1em;
+        padding: 0 .2em;
         color: $secundary-light-color;
         cursor: pointer;
+
+        @media only screen and (min-width: $min-table) {
+            padding: 0 1em;
+        }
     }
 
 }

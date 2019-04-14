@@ -1,19 +1,12 @@
-import { connect } from "react-redux";
-import { PresentationalHome } from "./presentational_home_page";
+import React from "react";
+import { ProductList } from "../../../../shared/components/product_list/product_list";
 
-const mapStateToProps = state => {
-  return {
-    products: state.products
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    getProducts: () => console.log("Get Products")
-  };
-};
-
-export const HomePage = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PresentationalHome);
+export class HomePage extends React.Component {
+  render() {
+    return (
+      <div>
+        <ProductList />
+      </div>
+    );
+  }
+}

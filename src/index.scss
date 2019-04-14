@@ -10,6 +10,7 @@
 }
 
 * {
+    @include sizing-border();
     padding: 0;
     margin: 0;
 }
