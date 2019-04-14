@@ -7,6 +7,11 @@
 
     &__title {
         color: $secundary-color;
-        padding-bottom: .5em;
+        padding-bottom: .2em;
+        padding-left: .8em;
+
+        @media only screen and (min-width: $min-table) {
+            font-size: 2em;
+        }
     }
 }

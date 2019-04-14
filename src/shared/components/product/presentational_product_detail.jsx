@@ -1,9 +1,5 @@
 import React from "react";
-
-import { NavLink } from "react-router-dom";
-
 import { ReactComponent as PlusIcon } from "./../../../assets/icons/plus-button.svg";
-import { marketPlace_routes } from "../../../config/routes";
 
 import "./product.scss";
 
