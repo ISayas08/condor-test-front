@@ -4,6 +4,14 @@
     padding: .7em;
     color: $dark-color;
 
+    @media only screen and (min-width: $min-table) {
+        width: 50%;
+    }
+
+    @media only screen and (min-width: $min-desktop) {
+        width: 30%;
+    }
+
     &__content {
         -webkit-box-shadow: 1px 1px 4px #dfdfdf;
         box-shadow: 1px 1px 4px #dfdfdf;
@@ -11,10 +19,14 @@
 
     &__preview {
         padding: .1em;
-        -o-object-fit: contain;
-        object-fit: contain;
+        -o-object-fit: cover;
+        object-fit: cover;
         height: auto;
         width: 100%;
+
+        @media only screen and (min-width: $min-table) {
+            height: 160px;
+        }
     }
 
     &__detail-box {
@@ -42,6 +54,7 @@
         color: $secundary-dark-color;
         font-weight: bold;
         font-size: .9em;
+        -webkit-transition: all .2s ease-in-out;
         transition: all .2s ease-in-out;
 
         &:hover {
@@ -84,12 +97,14 @@
             width: 50px;
             height: 50px;
             cursor: pointer;
+            -webkit-transition: all .2s ease-in-out;
             transition: all .2s ease-in-out;
             overflow: hidden;
 
             &-text {
                 font-size: .9em;
                 color: currentColor;
+                -webkit-transition: all .1s;
                 transition: all .1s;
             }
 
@@ -106,6 +121,7 @@
 
             &:hover>#{$button-box}-icon {
                 padding-bottom: 0;
+                transform: rotate(360deg);
             }
         }
 
@@ -114,6 +130,9 @@
             width: 25px;
             height: auto;
             padding-bottom: 1em;
+            -webkit-transition: all .2s ease-in-out;
+            transition: all .3s ease-in-out;
+
         }
     }
 }

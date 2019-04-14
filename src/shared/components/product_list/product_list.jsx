@@ -13,7 +13,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getProducts: () => dispatch(getProducts_ActionCreator())
+    getProducts: () => dispatch(getProducts_ActionCreator()),
+    addProductToCart: () => console.log("onAdd")
   };
 };
 

@@ -8,7 +8,7 @@ import "./product.scss";
 export const Product = props => {
   return (
     <div className="product">
-      <div onClick={props.onClick} className="product__content">
+      <div className="product__content">
         <img
           className="product__preview"
           src={props.imgURL}
