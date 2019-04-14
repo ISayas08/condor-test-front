@@ -1,0 +1,135 @@
+@import "./../../const/sass/index.scss";
+
+.footer {
+    $this: &;
+
+    @include flex();
+    @include sizing-border();
+    @include flex-flow-column();
+    padding: 1em 1.5em;
+    background-color: $dark-color;
+    color: $secundary-light-color;
+
+    @media only screen and (min-width: $min-table) {
+        @include flex-flow-row();
+        @include flex-wrap();
+    }
+
+    &__section {
+        @include sizing-border();
+        padding: 1em 0;
+
+        @media only screen and (min-width: $min-table) {
+            width: 50%;
+            padding: 1em 2em;
+        }
+
+        &--social {
+            position: relative;
+            border-top: 1px solid $secundary-dark-color;
+            padding-top: 3em;
+
+            @media only screen and (min-width: $min-table) {
+                width: 100%;
+            }
+        }
+
+
+    }
+
+    &__logo {
+        padding-bottom: 1em;
+    }
+
+    &__description {
+        text-align: justify;
+        padding-bottom: 1.5em;
+    }
+
+    &__title {
+        @include title-font();
+        color: $light-color;
+        font-size: 1.5em;
+        margin: 0;
+        padding: .3em 0;
+    }
+
+    &__field {
+        @include sizing-border();
+        @include body-font();
+        width: 100%;
+        border: 1px solid transparent;
+        border-bottom-color: $secundary-dark-color;
+        outline: none;
+        padding: .4em .6em;
+        height: 35px;
+        max-width: 300px;
+        -webkit-transition: .2s;
+        transition: .2s;
+        color: $dark-color;
+
+
+        &:focus~#{$this}__line {
+            width: 100%;
+        }
+
+        &-box {
+            @include sizing-border();
+            position: relative;
+            padding: 1em 0;
+            overflow: hidden;
+        }
+
+        &--area {
+            min-height: 40px;
+            max-height: 100px;
+            resize: none;
+            -webkit-transition: .2s;
+            transition: .2s;
+            background-color: $secundary-dark-color;
+            color: $secundary-light-color;
+            font-size: 1em;
+            font-weight: bold;
+
+            &:focus {
+                height: 100px;
+                background-color: $secundary-light-color;
+                color: $dark-color;
+            }
+
+            &:focus~#{$this}__line {
+                width: 100%;
+                bottom: 19px;
+
+            }
+        }
+    }
+
+    &__line {
+        position: absolute;
+        width: 0;
+        -webkit-transition: .2s;
+        transition: .2s;
+        bottom: 16px;
+        left: 0;
+        max-width: 300px;
+        border-bottom: 3px solid $light-color;
+    }
+
+    &__box {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        -webkit-transform: translate(-50%);
+        transform: translate(-50%);
+    }
+
+    &__icon {
+        width: 30px;
+        height: auto;
+        padding: 0 1em;
+        color: $secundary-light-color;
+        cursor: pointer;
+    }
+
+}
