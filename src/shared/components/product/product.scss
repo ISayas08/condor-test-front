@@ -1,6 +1,7 @@
 @import "./../../const/sass/index.scss";
 
 .product {
+    $main: &;
     padding: .7em;
     color: $dark-color;
 
@@ -25,6 +26,10 @@
         width: 100%;
 
         @media only screen and (min-width: $min-table) {
+            height: 200px;
+        }
+
+        @media only screen and (min-width: $min-desktop) {
             height: 160px;
         }
     }
@@ -121,6 +126,7 @@
 
             &:hover>#{$button-box}-icon {
                 padding-bottom: 0;
+                -webkit-transform: rotate(360deg);
                 transform: rotate(360deg);
             }
         }
@@ -131,8 +137,104 @@
             height: auto;
             padding-bottom: 1em;
             -webkit-transition: all .2s ease-in-out;
+            -webkit-transition: all .3s ease-in-out;
             transition: all .3s ease-in-out;
 
+        }
+    }
+
+    &--detail {
+        padding: .7em 0;
+
+        @media only screen and (min-width: $min-table) {
+            width: 100%;
+            padding: 1em;
+        }
+
+        #{$main}__content {
+            -webkit-box-shadow: none;
+            box-shadow: none;
+
+            @media only screen and (min-width: $min-table) {
+                @include flex();
+            }
+        }
+
+        #{$main}__preview {
+
+            @media only screen and (min-width: $min-table) {
+                width: 50%;
+                height: 300px
+            }
+        }
+
+        #{$main}__detail-box {
+
+            @media only screen and (min-width: $min-table) {
+                width: 50%;
+                padding-left: 1.5em
+            }
+        }
+
+        #{$main}__available {
+            @media only screen and (min-width: $min-table) {
+                font-size: 1.5em;
+            }
+        }
+
+        #{$main}__description {
+            padding-top: .5em;
+            padding-bottom: 1.5em;
+
+            @media only screen and (min-width: $min-table) {
+                padding-bottom: 3em;
+            }
+        }
+
+        #{$main}__price {
+            @media only screen and (min-width: $min-table) {
+                font-size: 1.3em;
+                margin-left: .2em;
+            }
+        }
+
+        #{$main}__add {
+            $button-box: &;
+
+            &-box {
+                margin-top: 1.5em;
+
+                @media only screen and (min-width: $min-table) {
+                    max-width: 50%;
+                    margin-top: 1em;
+                }
+            }
+
+            &-button {
+                @include justify-content-center();
+                width: 100%;
+                color: $light-color;
+                border-radius: 7.5px;
+                flex-wrap: initial;
+                position: initial;
+                margin: .5em 0;
+
+                &-text {
+                    font-size: 1em;
+                    margin-left: .5em;
+                    margin-right: .5em;
+                }
+
+
+
+                &:hover {}
+
+                &:hover>#{$button-box}-icon {}
+            }
+
+            &-icon {
+                padding-bottom: 0;
+            }
         }
     }
 }

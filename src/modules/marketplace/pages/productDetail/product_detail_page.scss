@@ -1,0 +1,12 @@
+@import "./../../../../shared/const/sass/index.scss";
+
+.product-detail {
+    &__content {
+        padding: 2em 1em;
+    }
+
+    &__title {
+        color: $secundary-color;
+        padding-bottom: .5em;
+    }
+}

@@ -1,22 +1,28 @@
-import React from "react";
+import { connect } from "react-redux";
 
-import { RouteManager } from "./../../../../core/components/routeManager/RouteManager";
-import { marketPlace_routes } from "./../../../../config/routes";
-import { HeaderComponent } from "../../../../shared/components/header/header_component";
-import { FooterComponent } from "../../../../shared/components/footer/footer_component";
+import { PresentationalMarketPlaceMain } from "./Presentational_marketPlaceMain";
 
-export const MarketPlaceMain = () => {
-  return (
-    <div className="marketplace">
-      <header className="marketplace__header">
-        <HeaderComponent />
-      </header>
-      <section className="marketplace__page-box">
-        <RouteManager routes={marketPlace_routes} />
-      </section>
-      <footer className="marketplace__footer">
-        <FooterComponent />
-      </footer>
-    </div>
-  );
+import * as USER_ACTIONS from "./../../../../core/redux/actions/user_actionCreators";
+import * as CART_ACTIONS from "./../../../../core/redux/actions/cart_actionCreator";
+
+const mapStateToProps = state => {
+  return {
+    user: state.user,
+    cartId: state.shoppingCart.id
+  };
 };
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getUser: userId => dispatch(USER_ACTIONS.create_get_user_action(userId)),
+    createUser: () => dispatch(USER_ACTIONS.create_new_user_action()),
+    updateUser: newUser =>
+      dispatch(USER_ACTIONS.create_update_user_action(newUser)),
+    createCart: () => dispatch(CART_ACTIONS.createCart_ActionCreator())
+  };
+};
+
+export const MarketPlaceMain = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PresentationalMarketPlaceMain);

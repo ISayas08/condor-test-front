@@ -12,3 +12,7 @@ export const normalizeArray = (array = [], propertyName) => {
   }
   return {};
 };
+
+export const isEmpty = (obj) => {
+  return obj ? !Object.keys(obj).length : true;
+};
