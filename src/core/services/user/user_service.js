@@ -20,7 +20,11 @@ class UserService {
   }
 
   updateUser(newUser) {
-    return _http.put(UPDATE_USER_ENDPOINT, newUser);
+    return _http.put(UPDATE_USER_ENDPOINT, newUser, [newUser.userId]);
+  }
+
+  getUser(userId) {
+    return _http.get(UPDATE_USER_ENDPOINT, [userId]);
   }
 }
 

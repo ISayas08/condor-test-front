@@ -3,8 +3,8 @@ import * as REQ_ACTIONS from "./request_actionCreators";
 import { createStandardAction } from "./utils";
 import { CART } from "./../../../shared/const/actions_consts";
 
-export const setCart_ActionCreator = cart =>
-  createStandardAction(CART.SET_CART, cart);
+export const setCart_ActionCreator = cartId =>
+  createStandardAction(CART.SET_CART, { cartId: cartId });
 
 export const updateCart_ActionCreator = cart =>
   createStandardAction(CART.UPDATE_CART, cart);
@@ -17,7 +17,7 @@ export const createCart_ActionCreator = () => {
     return _cart
       .createOne()
       .then(res => {
-        dispatch(setCart_ActionCreator(res.body.response));
+        dispatch(setCart_ActionCreator(res.body.response.cartId));
         dispatch(REQ_ACTIONS.create_request_successful_action());
       })
       .catch(err => {
@@ -35,7 +35,6 @@ export const getCart_actionCreator = cartId => {
     return _cart
       .getOne(cartId)
       .then(res => {
-        console.error(res.body.response)
         dispatch(updateCart_ActionCreator(res.body.response));
         dispatch(REQ_ACTIONS.create_request_successful_action());
       })
