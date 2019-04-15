@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { RouteManager } from "./../routeManager/RouteManager";
-import './App.scss';
+import "./App.scss";
 
 import { module_routes } from "./../../../config/routes";
 

@@ -3,6 +3,7 @@ import { Product } from "../product/product";
 
 import "./product_list.scss";
 import { pick } from "../../utils/objets";
+import { Loading } from "../loading/loading";
 
 export class PresentationalProductList extends React.Component {
   constructor(props) {
@@ -35,21 +36,25 @@ export class PresentationalProductList extends React.Component {
   render() {
     return (
       <div className="product-list">
-        {this.state.products
-          .filter(p => p.category.includes(this.props.filterOptions.category))
-          .filter(p =>
-            p.name
-              .toLowerCase()
-              .includes(this.props.filterOptions.toSearch.toLowerCase())
-          )
-          .map(p => (
-            <Product
-              key={p.id}
-              {...Object.assign(p, {
-                onAdd: this.addProduct
-              })}
-            />
-          ))}
+        {this.props.isFetching ? (
+          <Loading />
+        ) : (
+          this.state.products
+            .filter(p => p.category.includes(this.props.filterOptions.category))
+            .filter(p =>
+              p.name
+                .toLowerCase()
+                .includes(this.props.filterOptions.toSearch.toLowerCase())
+            )
+            .map(p => (
+              <Product
+                key={p.id}
+                {...Object.assign(p, {
+                  onAdd: this.addProduct
+                })}
+              />
+            ))
+        )}
       </div>
     );
   }

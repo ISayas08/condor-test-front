@@ -2,8 +2,7 @@
 @import './sass-variables.scss';
 
 
-@mixin bds-loading {
-
+@mixin loading {
     &-box {
         @include flex();
         @include justify-content-around();
@@ -11,8 +10,6 @@
         width: 100%;
         position: relative;
     }
-
-
 
     &--rolling {
         @include sizing-border();

@@ -4,6 +4,7 @@ import { isEmpty, pick } from "../../../../shared/utils/objets";
 
 import "./product_detail_page.scss";
 import { FilterBar } from "../../../../shared/components/filterBar/filter_bar";
+import { Loading } from "../../../../shared/components/loading/loading";
 
 export class PresentationalProductDetail extends Component {
   constructor(props) {
@@ -34,18 +35,24 @@ export class PresentationalProductDetail extends Component {
   render() {
     return (
       <div className="product-detail">
-        {!isEmpty(this.state.product) && (
-          <div className="product-detail__content">
-            <FilterBar showSearchBar={false} />
-            <h2 className="product-detail__title">{this.state.product.name}</h2>
-            <Product
-              {...Object.assign({}, this.state.product, {
-                onAdd: this.onAdd,
-                onSubs: this.onSubstract,
-                mode: "PRODUCT_DETAIL"
-              })}
-            />
-          </div>
+        {this.props.isFetching ? (
+          <Loading />
+        ) : (
+          !isEmpty(this.state.product) && (
+            <div className="product-detail__content">
+              <FilterBar showSearchBar={false} />
+              <h2 className="product-detail__title">
+                {this.state.product.name}
+              </h2>
+              <Product
+                {...Object.assign({}, this.state.product, {
+                  onAdd: this.onAdd,
+                  onSubs: this.onSubstract,
+                  mode: "PRODUCT_DETAIL"
+                })}
+              />
+            </div>
+          )
         )}
       </div>
     );

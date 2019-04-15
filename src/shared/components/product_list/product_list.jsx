@@ -7,7 +7,7 @@ import { addProductToCart } from "../../../core/redux/actions/cart_actionCreator
 const mapStateToProps = state => {
   return {
     products: state.products ? state.products : {},
-    fetch: state.requestInfo,
+    isFetching: state.requestInfo.isFetching,
     cart: state.shoppingCart,
     filterOptions: state.filterOptions
   };

@@ -5,7 +5,8 @@ import { removeProduct_actionCreator } from "../../../../core/redux/actions/cart
 
 const mapStateToProps = state => {
   return {
-    cart: state.shoppingCart || []
+    cart: state.shoppingCart || [],
+    isFetching: state.requestInfo.isFetching
   };
 };
 
