@@ -35,15 +35,13 @@ export class PresentationalProductDetail extends Component {
   render() {
     return (
       <div className="product-detail">
+        <FilterBar showSearchBar={false} />
+        <h2 className="product-detail__title">{this.state.product.name}</h2>
         {this.props.isFetching ? (
           <Loading />
         ) : (
           !isEmpty(this.state.product) && (
             <div className="product-detail__content">
-              <FilterBar showSearchBar={false} />
-              <h2 className="product-detail__title">
-                {this.state.product.name}
-              </h2>
               <Product
                 {...Object.assign({}, this.state.product, {
                   onAdd: this.onAdd,
