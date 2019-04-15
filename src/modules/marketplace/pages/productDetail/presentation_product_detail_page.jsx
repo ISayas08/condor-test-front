@@ -35,8 +35,10 @@ export class PresentationalProductDetail extends Component {
   render() {
     return (
       <div className="product-detail">
-        <FilterBar showSearchBar={false} />
-        <h2 className="product-detail__title">{this.state.product.name}</h2>
+        <div className="product-detail__header">
+          <FilterBar showSearchBar={false} />
+          <h2 className="product-detail__title">{this.state.product.name}</h2>
+        </div>
         {this.props.isFetching ? (
           <Loading />
         ) : (

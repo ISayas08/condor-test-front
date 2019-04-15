@@ -3,6 +3,11 @@
 .cartDetail {
     padding: 1.5em 0;
 
+    &__content {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
     &__no-products {
         @include flex();
         @include align-items-center();
