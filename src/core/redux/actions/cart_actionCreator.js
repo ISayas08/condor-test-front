@@ -1,59 +1,50 @@
-import { _cart } from "./../../services/cart/cartService";
 import * as REQ_ACTIONS from "./request_actionCreators";
 import { createStandardAction } from "./utils";
 import { CART } from "./../../../shared/const/actions_consts";
 
-export const setCart_ActionCreator = cartId =>
-  createStandardAction(CART.SET_CART, { cartId: cartId });
+export const addProductToCart = product => {
+  return createStandardAction(CART.ADD_PRODUCT, product);
+};
+export const removeProduct_actionCreator = productId =>
+  createStandardAction(CART.REMOVE_PRODUCT, { productId: productId });
 
 export const updateCart_ActionCreator = cart =>
   createStandardAction(CART.UPDATE_CART, cart);
 
-
 export const createCart_ActionCreator = () => {
   return dispatch => {
-    dispatch(REQ_ACTIONS.create_request_start_action());
+    const newCart = {
+      products: []
+    };
 
-    return _cart
-      .createOne()
-      .then(res => {
-        dispatch(setCart_ActionCreator(res.body.response.cartId));
-        dispatch(REQ_ACTIONS.create_request_successful_action());
-      })
-      .catch(err => {
-        dispatch(
-          REQ_ACTIONS.create_request_error_action(err.status, err.message)
-        );
-      });
+    try {
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      return dispatch(updateCart_ActionCreator(newCart));
+    } catch (err) {
+      dispatch(
+        REQ_ACTIONS.create_request_error_action(
+          err.status,
+          err.message,
+          "Error creating cart"
+        )
+      );
+    }
   };
 };
 
-export const getCart_actionCreator = cartId => {
+export const getCart_actionCreator = () => {
   return dispatch => {
-    dispatch(REQ_ACTIONS.create_request_start_action());
+    try {
+      const newCart = JSON.parse(localStorage.getItem("cart"));
+      return dispatch(updateCart_ActionCreator(newCart));
+    } catch (err) {
+      REQ_ACTIONS.create_request_error_action(
+        err.status,
+        err.message,
+        "Error creating cart"
+      );
+    }
 
-    return _cart
-      .getOne(cartId)
-      .then(res => {
-        dispatch(updateCart_ActionCreator(res.body.response));
-        dispatch(REQ_ACTIONS.create_request_successful_action());
-      })
-      .catch(err => {
-        dispatch(
-          REQ_ACTIONS.create_request_error_action(err.status, err.message)
-        );
-      });
+    return;
   };
-};
-
-export const addProductToCart_actionCreator = (cartId, productId, quantity) => {
-  return dispatch => {
-    dispatch(REQ_ACTIONS.create_request_start_action());
-
-    return _cart.addProductToCart(cartId, productId, quantity).then(res => {
-      dispatch(REQ_ACTIONS.create_request_successful_action());
-    }).catch(err => {
-      dispatch(REQ_ACTIONS.create_request_error_action(err.status, err.message))
-    })
-  }
 };

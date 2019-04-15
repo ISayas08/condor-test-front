@@ -11,17 +11,23 @@ export const setProductOnDetail_ActionCreator = productToBeDetailed =>
 
 export const getProducts_ActionCreator = () => {
   return dispatch => {
-    dispatch(REQ_ACTIONS.create_request_start_action());
+    dispatch(REQ_ACTIONS.create_request_start_action("Get all products"));
 
     return _product
       .getAll()
       .then(res => {
         dispatch(setProductList_ActionCreator(res.body.response));
-        dispatch(REQ_ACTIONS.create_request_successful_action());
+        dispatch(
+          REQ_ACTIONS.create_request_successful_action("Get all products")
+        );
       })
       .catch(err => {
         dispatch(
-          REQ_ACTIONS.create_request_error_action(err.status, err.message)
+          REQ_ACTIONS.create_request_error_action(
+            err.status,
+            err.message,
+            "Get all products"
+          )
         );
       });
   };
@@ -29,17 +35,21 @@ export const getProducts_ActionCreator = () => {
 
 export const getProduct_ActionCreator = productId => {
   return dispatch => {
-    dispatch(REQ_ACTIONS.create_request_start_action());
+    dispatch(REQ_ACTIONS.create_request_start_action("Get product"));
 
     return _product
       .getOne(productId)
       .then(res => {
         dispatch(setProductOnDetail_ActionCreator(res.body.response));
-        dispatch(REQ_ACTIONS.create_request_successful_action());
+        dispatch(REQ_ACTIONS.create_request_successful_action("Get product"));
       })
       .catch(err => {
         dispatch(
-          REQ_ACTIONS.create_request_error_action(err.status, err.message)
+          REQ_ACTIONS.create_request_error_action(
+            err.status,
+            err.message,
+            "Get product"
+          )
         );
       });
   };

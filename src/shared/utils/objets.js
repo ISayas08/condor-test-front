@@ -13,6 +13,17 @@ export const normalizeArray = (array = [], propertyName) => {
   return {};
 };
 
-export const isEmpty = (obj) => {
+export const isEmpty = obj => {
   return obj ? !Object.keys(obj).length : true;
+};
+
+export const pick = (obj, ...keys) => {
+  if (keys.length && !isEmpty(obj)) {
+    const auxObj = {};
+    keys.forEach(key => {
+      if (obj[key]) auxObj[key] = obj[key];
+    });
+    return auxObj;
+  }
+  return {};
 };

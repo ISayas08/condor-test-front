@@ -23,7 +23,7 @@ export const PresentationalProductItem = props => {
           <div className="product__see-more-box">
             <NavLink
               className="product__see-more"
-              to={marketPlace_routes[1].route.replace(":id", props.id)}
+              to={marketPlace_routes[2].route.replace(":id", props.id)}
             >
               See detail
             </NavLink>
@@ -32,7 +32,10 @@ export const PresentationalProductItem = props => {
             {" COP $ "}
             {props.price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
           </span>
-          <button onClick={props.onAdd} className="product__add-button">
+          <button
+            onClick={() => props.onAdd(props)}
+            className="product__add-button"
+          >
             <PlusIcon className="product__add-icon" />
             <span className="product__add-button-text">Add to cart</span>
           </button>

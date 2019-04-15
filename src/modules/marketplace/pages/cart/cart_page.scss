@@ -1,0 +1,25 @@
+@import "./../../../../shared/const/sass/index.scss";
+
+.cartDetail {
+    padding: 1.5em 0;
+
+    &__no-products {
+        @include flex();
+        @include align-items-center();
+        @include justify-content-around();
+        min-height: 200px;
+        font-size: 2em;
+        margin: 0 1em;
+    }
+
+    &__title {
+        color: $secundary-color;
+        font-size: 1.8em;
+        padding-left: .5em;
+        margin-top: .5em;
+    }
+
+    &__product-list {
+        margin-top: .8em;
+    }
+}

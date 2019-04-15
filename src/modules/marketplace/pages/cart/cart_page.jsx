@@ -1,19 +1,21 @@
 import { connect } from "react-redux";
-import { PresentationalHome } from "./presentational_home_page";
+
+import { PresentationalCat } from "./car_presentational_page";
+import { removeProduct_actionCreator } from "../../../../core/redux/actions/cart_actionCreator";
 
 const mapStateToProps = state => {
   return {
-    products: state
+    cart: state.shoppingCart || []
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    getCartDetail: () => console.log("Get Cart")
+    removeFromCart: cartId => dispatch(removeProduct_actionCreator(cartId))
   };
 };
 
 export const CartPage = connect(
   mapStateToProps,
   mapDispatchToProps
-)(PresentationalHome);
+)(PresentationalCat);

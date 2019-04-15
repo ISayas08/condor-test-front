@@ -18,16 +18,6 @@ export const CREATE_USER_ENDPOINT = `${USER_SERVICE}/`;
 export const UPDATE_USER_ENDPOINT = `${USER_SERVICE}/{PARAM}`;
 
 // ===============================================================
-//   Cart service
-// ===============================================================
-export const CART_SERVICE = `${BACK_URL}/shoppingCart`;
-
-// Car service endpoints
-export const GET_CART_DETAIL = `${CART_SERVICE}/{PARAM}`;
-export const CREATE_CART = `${CART_SERVICE}/`;
-export const UPDATE_CART = `${CART_SERVICE}/{PARAM}`;
-
-// ===============================================================
 //   Products service
 // ===============================================================
 export const PRODUCT_SERVICE = `${BACK_URL}/products`;

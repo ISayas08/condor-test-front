@@ -2,15 +2,14 @@ import React from "react";
 
 import { RouteManager } from "./../../../../core/components/routeManager/RouteManager";
 import { marketPlace_routes } from "./../../../../config/routes";
-import { HeaderComponent } from "../../../../shared/components/header/header_component";
-import { FooterComponent } from "../../../../shared/components/footer/footer_component";
+import { HeaderComponent } from "../../../../shell/components/header/header_component";
+import { FooterComponent } from "../../../../shell/components/footer/footer_component";
 
 export class PresentationalMarketPlaceMain extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.getUserData();
-    console.error("ACTIVAR USER AND CART");
+    this.getUserData();
   }
 
   getUserData = () => {
@@ -20,13 +19,8 @@ export class PresentationalMarketPlaceMain extends React.Component {
       this.createAndSaveUser();
     } else {
       this.props.getUser(userId).then(() => {
-        if (this.props.cartId)
-          localStorage.setItem("cartId", this.props.cartId);
-        else {
-          localStorage.removeItem("userId");
-          localStorage.removeItem("cartId");
-          this.createAndSaveUser();
-        }
+        if (!this.props.cart) this.props.createCart();
+        else this.props.getCart();
       });
     }
   };
@@ -37,14 +31,6 @@ export class PresentationalMarketPlaceMain extends React.Component {
       .then(result => {
         localStorage.setItem("userId", this.props.user.userId);
         return this.props.createCart();
-      })
-      .then(res => {
-        localStorage.setItem("cartId", this.props.cartId);
-        return this.props.updateUser(
-          Object.assign({}, this.props.user, {
-            shoppingCartId: this.props.cartId
-          })
-        );
       })
       .catch(err => {});
   };

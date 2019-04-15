@@ -8,7 +8,11 @@ import {
 
 const mapStateToProps = state => {
   return {
-    categories: Object.keys(state.products)
+    categories: [
+      ...new Set(
+        Object.keys(state.products).map(key => state.products[key].category)
+      )
+    ]
   };
 };
 

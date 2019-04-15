@@ -8,7 +8,7 @@ import * as CART_ACTIONS from "./../../../../core/redux/actions/cart_actionCreat
 const mapStateToProps = state => {
   return {
     user: state.user,
-    cartId: state.shoppingCart.id
+    cart: state.shoppingCart
   };
 };
 
@@ -18,7 +18,8 @@ const mapDispatchToProps = dispatch => {
     createUser: () => dispatch(USER_ACTIONS.create_new_user_action()),
     updateUser: newUser =>
       dispatch(USER_ACTIONS.create_update_user_action(newUser)),
-    createCart: () => dispatch(CART_ACTIONS.createCart_ActionCreator())
+    createCart: () => dispatch(CART_ACTIONS.createCart_ActionCreator()),
+    getCart: () => dispatch(CART_ACTIONS.getCart_actionCreator())
   };
 };
 
