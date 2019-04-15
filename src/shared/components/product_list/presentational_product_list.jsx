@@ -107,14 +107,21 @@ export class PresentationalProductList extends React.Component {
   render() {
     return (
       <div className="product-list">
-        {this.state.products.map(p => (
-          <Product
-            key={p.id}
-            {...Object.assign(p, {
-              onAdd: this.props.addProductToCart
-            })}
-          />
-        ))}
+        {this.state.products
+          .filter(p => p.category.includes(this.props.filterOptions.category))
+          .filter(p =>
+            p.name
+              .toLowerCase()
+              .includes(this.props.filterOptions.toSearch.toLowerCase())
+          )
+          .map(p => (
+            <Product
+              key={p.id}
+              {...Object.assign(p, {
+                onAdd: this.props.addProductToCart
+              })}
+            />
+          ))}
       </div>
     );
   }

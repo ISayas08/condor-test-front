@@ -7,7 +7,8 @@ const mapStateToProps = state => {
   return {
     products: state.products ? state.products : {},
     fetch: state.requestInfo,
-    carId: state.shoppingCart.id
+    carId: state.shoppingCart.id,
+    filterOptions: state.filterOptions
   };
 };
 

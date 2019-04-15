@@ -3,11 +3,13 @@ import { requestInfo } from "./requestStatusReducer";
 import { user } from "./userReducer";
 import { products, productOnDetail } from "./productReducer";
 import { shoppingCart } from "./cartReducer";
+import { filterOptions } from "./filterReducer";
 
 export const rootReducer = combineReducers({
-  requestInfo,
   user,
+  requestInfo,
   products,
   productOnDetail,
-  shoppingCart
+  shoppingCart,
+  filterOptions
 });
