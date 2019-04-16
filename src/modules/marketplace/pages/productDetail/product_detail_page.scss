@@ -1,0 +1,23 @@
+@import "./../../../../shared/const/sass/index.scss";
+
+.product-detail {
+    padding: 2em 0;
+
+    &__content,
+    &__header {
+        padding: 0em 1em;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    &__title {
+        color: $secundary-color;
+        padding-bottom: .2em;
+        padding-left: .5em;
+        margin-top: .5em;
+
+        @media only screen and (min-width: $min-table) {
+            font-size: 2em;
+        }
+    }
+}

@@ -1,0 +1,148 @@
+@import "./../../../shared/const/sass/index.scss";
+
+.footer {
+    $this: &;
+
+    @include flex();
+    @include flex-flow-column();
+    padding: 1em 1.5em;
+    background-color: $dark-color;
+    color: $secundary-light-color;
+
+    @media only screen and (min-width: $min-table) {
+        @include flex-flow-row();
+        @include flex-wrap();
+        padding: 2em 1.5em;
+    }
+
+    &__section {
+        padding: 1em 0;
+
+        @media only screen and (min-width: $min-table) {
+            width: 50%;
+            padding: 1em 2em;
+        }
+
+        &--social {
+            position: relative;
+            border-top: 1px solid $secundary-dark-color;
+            padding-top: 2em;
+
+            @media only screen and (min-width: $min-table) {
+                width: 100%;
+                padding: 2em 0 0 0;
+            }
+        }
+
+
+    }
+
+    &__logo {
+        padding-bottom: 1em;
+    }
+
+    &__description {
+        text-align: justify;
+        padding-bottom: 1.5em;
+    }
+
+    &__title {
+        @include title-font();
+        color: $light-color;
+        font-size: 1.5em;
+        margin: 0;
+        padding: .3em 0;
+    }
+
+    &__field {
+        @include sizing-border();
+        @include body-font();
+        width: 100%;
+        border: 1px solid transparent;
+        border-bottom-color: $secundary-dark-color;
+        outline: none;
+        padding: .4em .6em;
+        height: 35px;
+        -webkit-transition: .2s;
+        transition: .2s;
+        color: $dark-color;
+
+        &:focus~#{$this}__line {
+            width: 100%;
+        }
+
+        &-box {
+            @include sizing-border();
+            position: relative;
+            padding: 1em 0;
+            overflow: hidden;
+        }
+
+        &--area {
+            min-height: 40px;
+            max-height: 100px;
+            resize: none;
+            -webkit-transition: .2s;
+            transition: .2s;
+            background-color: $secundary-dark-color;
+            color: $secundary-light-color;
+            font-size: 1em;
+            font-weight: bold;
+
+            @media only screen and (min-width: $min-table) {
+                max-width: 300px;
+            }
+
+            &:focus {
+                height: 100px;
+                background-color: $secundary-light-color;
+                color: $dark-color;
+
+                @media only screen and (min-width: $min-table) {
+                    max-width: 350px;
+                }
+            }
+
+            &:focus~#{$this}__line {
+                width: 100%;
+                bottom: 19px;
+
+            }
+        }
+    }
+
+    &__line {
+        position: absolute;
+        width: 0;
+        -webkit-transition: .2s;
+        transition: .2s;
+        bottom: 16px;
+        left: 0;
+        border-bottom: 3px solid $light-color;
+
+        @media only screen and (min-width: $min-table) {
+            max-width: 350px;
+        }
+    }
+
+    &__box {
+        @include flex();
+        @include justify-content-center();
+        width: 100%;
+    }
+
+    &__icon {
+        width: 30px;
+        height: 30px;
+        margin: 0 .2em;
+        color: $secundary-light-color;
+        cursor: pointer;
+
+        @media only screen and (min-width: $min-table) {
+            padding: 0 1em;
+            width: 70px;
+            height: 37px;
+        }
+    }
+
+}

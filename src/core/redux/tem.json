@@ -1,0 +1,33 @@
+{
+  "products": {
+    "_id0001": {
+      "_id": "string",
+      "name": "",
+      "price": "",
+      "available": "",
+      "category": "",
+      "imgURL": "",
+      "description": ""
+    }
+  },
+  "shoppingCart": {
+    "id": "",
+    "selectedProducts": {
+      "_id0001": {
+        "_id": "string",
+        "name": "",
+        "price": "",
+        "quantity": "",
+        "imgURL": ""
+      }
+    }
+  },
+  "user": {
+    "_id": "",
+    "mail": "",
+    "name": ""
+  },
+  "stateRequestInfo": {
+    "isFetChing": false
+  }
+}

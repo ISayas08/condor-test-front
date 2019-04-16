@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito|Open+Sans');
+
+$font-familiy-body: 'Open Sans',
+sans-serif;
+$font-familiy-title: 'Nunito',
+sans-serif;
+
+// =====================================
+//   Mixins.
+// =====================================
+@mixin flex() {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+@mixin justify-content-between() {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+@mixin justify-content-end() {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+@mixin justify-content-start() {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+}
+
+@mixin justify-content-around() {
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+@mixin justify-content-center() {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+@mixin align-content-center() {
+    -ms-flex-line-pack: center;
+    align-content: center;
+}
+
+@mixin flex-wrap() {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+@mixin align-items-center() {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+@mixin align-items-end() {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+
+@mixin align-items-baseline() {
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+}
+
+@mixin align-items-start() {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+@mixin sizing-border() {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@mixin box-shadow($x-position, $y-position, $blur, $color) {
+    -webkit-box-shadow: $x-position $y-position $blur $color;
+    box-shadow: $x-position $y-position $blur $color;
+}
+
+@mixin align-self-end() {
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+}
+
+@mixin align-self-center() {
+    -ms-flex-item-align: center;
+    align-self: center;
+}
+
+@mixin flex-flow-column() {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
+    flex-flow: column;
+}
+
+@mixin flex-flow-column-reverse() {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-flow: column-reverse;
+    flex-flow: column-reverse;
+}
+
+@mixin flex-flow-row() {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row;
+    flex-flow: row;
+}
+
+@mixin flex-flow-row-reverse() {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-flow: row-reverse;
+    flex-flow: row-reverse;
+}
+
+@mixin rotate($deg) {
+    -webkit-transform: rotate($deg);
+    transform: rotate($deg);
+}
+
+@mixin text-wrap() {
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+@mixin smooth-transition($duration) {
+    -webkit-transition: $duration;
+    transition: $duration;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
+@mixin title-font() {
+    font-family: $font-familiy-title;
+    font-weight: 400;
+}
+
+@mixin title-font--semibold() {
+    font-family: $font-familiy-title;
+    font-weight: 600;
+}
+
+@mixin title-font--bold() {
+    font-family: $font-familiy-title;
+    font-weight: bold;
+}
+
+@mixin body-font() {
+    font-family: $font-familiy-body;
+    font-weight: 400;
+}
+
+@mixin body-font--semibold() {
+    font-family: $font-familiy-body;
+    font-weight: 600;
+}
+
+@mixin body-font--bold() {
+    font-family: $font-familiy-body;
+    font-weight: bold;
+}
+
+@mixin default-shadow() {
+    -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.16), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.16), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+@mixin default-shadow--hover() {
+    -webkit-box-shadow: 2px 2px 4px 0 hsla(0, 0%, 0%, 0.212), 0 0 5px 0 hsla(0, 0%, 0%, 0.212);
+    box-shadow: 2px 2px 4px 0 hsla(0, 0%, 0%, 0.212), 0 0 5px 0 hsla(0, 0%, 0%, 0.212);
+}
+
+@mixin parent-height() {
+    position: relative;
+    height: 100%;
+}

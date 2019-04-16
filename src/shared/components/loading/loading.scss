@@ -1,0 +1,5 @@
+@import "./../../const/sass/index.scss";
+
+.loading {
+    @include loading();
+}
